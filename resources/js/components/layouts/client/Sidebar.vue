@@ -87,23 +87,6 @@
                             style="width:20px; margin-right:5px"></i>
                     <span>Transition Risk</span>
                 </router-link>
-                <ul id="transition_risk-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-                    <li>
-                        <router-link to="/transition_risk/sectoral_analysis" active-class="active-submenu-link">
-                           <span>Sectoral Analysis</span>
-                        </router-link>
-                    </li>
-                    <li>
-                        <router-link to="/transition_risk/policy_regulations" active-class="active-submenu-link">
-                           <span>Policy & Regulations</span>
-                        </router-link>
-                    </li>
-                    <li>
-                        <router-link to="/transition_risk/technology_changes" active-class="active-submenu-link">
-                           <span>Technology Changes</span>
-                        </router-link>
-                    </li>
-                </ul>
             </li>
 
             <li class="nav-item">
