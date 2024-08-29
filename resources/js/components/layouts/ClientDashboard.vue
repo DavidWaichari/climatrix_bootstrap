@@ -3,7 +3,7 @@
           <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
 
-<div class="d-flex align-items-center justify-content-between h-100  p-0" style="background-image: url('/assets/ui/images/sidebar.svg'); background-size: cover; background-position: center; background-repeat: no-repeat; width:295px">
+<div class="d-flex align-items-center justify-content-between h-100  p-0" style="background-image: url('/assets/ui/images/sidebar.svg'); background-size: cover; background-position: center; background-repeat: no-repeat; max-width:295px; min-width: 0px;">
     <a href="index.html" class="logo d-flex align-items-center justify-content-center">
       <img src="/theme/assets/img/logo.png" alt="">
       <span class="d-none d-lg-block text-white">Climatric</span>

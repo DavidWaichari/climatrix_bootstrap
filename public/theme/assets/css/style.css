@@ -1235,3 +1235,14 @@ h6 {
   font-size: 13px;
   color: #012970;
 }
+/* Add this CSS to your stylesheet */
+.fixed-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa; /* Adjust the background color as needed */
+    text-align: center;
+    padding: 10px 0; /* Adjust padding as needed */
+    z-index: 1000; /* Ensure it's above other content */
+}
