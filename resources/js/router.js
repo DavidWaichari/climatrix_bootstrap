@@ -10,8 +10,11 @@ import Login from './components/auth/Login.vue'
 import Register from './components/auth/Register.vue'
 import DashboardIndex from './components/client/dashboard/Index.vue';
 import SelfAssessmentIndex from './components/client/self_assessment/Index.vue';
-import GHGManagementIndex from './components/client/ghg_management/Index.vue';
-import PhysicalRisktIndex from './components/client/physical_risk/Index.vue';
+import GHGManagementIndex from './components/client/ghg_management/main/Index.vue';
+import GHGManagementScopeOneIndex from './components/client/ghg_management/scope_one/Index.vue';
+import GHGManagementScopeTwoIndex from './components/client/ghg_management/scope_two/Index.vue';
+import GHGManagementScopeThreeIndex from './components/client/ghg_management/scope_three/Index.vue';
+import PhysicalRisktIndex from './components/client/physical_risk/main/Index.vue';
 import TransitionRisktIndex from './components/client/transition_risk/Index.vue';
 import CarbonOffsetIndex from './components/client/carbon_offset/Index.vue';
 import PeerComparisonIndex from './components/client/peer_comparison/Index.vue';
@@ -25,7 +28,10 @@ const routes = [
         children:[
             { path: '', component: DashboardIndex },
             { path: '/self_assessment', component: SelfAssessmentIndex },
-            { path: '/ghg_management', component: GHGManagementIndex },
+            { path: '/ghg_management', component: GHGManagementIndex},
+            { path: '/ghg_management/scope_one', component: GHGManagementScopeOneIndex},
+            { path: '/ghg_management/scope_two', component: GHGManagementScopeTwoIndex},
+            { path: '/ghg_management/scope_three', component: GHGManagementScopeThreeIndex},
             { path: '/physical_risk', component: PhysicalRisktIndex },
             { path: '/transition_risk', component: TransitionRisktIndex },
             { path: '/carbon_offset', component: CarbonOffsetIndex },

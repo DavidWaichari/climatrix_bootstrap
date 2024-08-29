@@ -3,14 +3,13 @@
           <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
 
-<div class="d-flex align-items-center justify-content-between h-100" style="background-image: url('/assets/ui/images/sidebar.svg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<div class="d-flex align-items-center justify-content-between h-100  p-0" style="background-image: url('/assets/ui/images/sidebar.svg'); background-size: cover; background-position: center; background-repeat: no-repeat; width:295px">
     <a href="index.html" class="logo d-flex align-items-center justify-content-center">
       <img src="/theme/assets/img/logo.png" alt="">
       <span class="d-none d-lg-block text-white">Climatric</span>
     </a>
-    <p style="color:#2ca55e">.....</p>
-    <i class="bi bi-list toggle-sidebar-btn h-100" @click="toggleSidebar" style="background-color: white"></i>
-</div><!-- End Logo -->
+    <i class="bi bi-list toggle-sidebar-btn h-100" @click="toggleSidebar" style="background-color: white; padding-left: 0px;"></i>
+</div>
 <div class="search-bar h-100 pt-2">
   <form class="search-form d-flex align-items-center" method="POST" action="#">
     <input type="text" name="query" placeholder="Search" title="Enter search keyword">
@@ -255,17 +254,17 @@
     </a>
     <ul id="ghg_management-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
       <li>
-        <router-link to="/ghg_management/risk_map">
+        <router-link to="/ghg_management/scope_one">
           <i class="bi bi-circle"></i><span>GHG Scope 1</span>
         </router-link>
       </li>
       <li>
-        <router-link to="/ghg_management/earthquakes">
+        <router-link to="/ghg_management/scope_two">
           <i class="bi bi-circle"></i><span>GHG Scope 2</span>
         </router-link>
       </li>
       <li>
-        <router-link to="/ghg_management/ssp2_floods">
+        <router-link to="/ghg_management/scope_three">
           <i class="bi bi-circle"></i><span>GHG Scope 3</span>
         </router-link>
       </li>
@@ -273,7 +272,7 @@
 </li><!-- End Components Nav -->
 
   <li class="nav-item">
-    <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+    <a @click.prevent="navigate('/physical_risk')" class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
       <i><img src="/assets/ui/images/Physicalrisk.svg" alt="Physical Risk" style="width:20px; margin-right:5px"></i>
       <span>Physical Risk</span><i class="bi bi-chevron-down ms-auto"></i>
     </a>

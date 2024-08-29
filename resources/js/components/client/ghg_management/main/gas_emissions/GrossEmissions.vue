@@ -9,6 +9,6 @@
     </div>
 </template>
 <script setup>
-import SemiDonutChart from '../../../shared/charts/SemiDonutChart.vue';
+import SemiDonutChart from '../../../../shared/charts/SemiDonutChart.vue';
 </script>
 

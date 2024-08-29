@@ -13,7 +13,7 @@
     </div>
 </template>
 <script setup>
-import BarChart from '../../../shared/charts/BarChart.vue';
+import BarChart from '../../../../shared/charts/BarChart.vue';
 
 // Define the data you want to pass as props
 const timeSeries = [

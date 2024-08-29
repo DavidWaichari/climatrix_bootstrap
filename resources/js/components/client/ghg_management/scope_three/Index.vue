@@ -12,7 +12,7 @@
 
         <section class="section dashboard">
             <div class="row">
-                <h2>Total Green House Gas Emissions</h2>
+                <h2>Scope 3 Emissions</h2>
                 <!-- Sales Card -->
                 <div class="col-xxl-4 col-md-4">
                     <div class="card info-card sales-card">
@@ -78,7 +78,7 @@
 
             </div>
             <div class="row">
-                <h2>Emission Distribution</h2>
+                <h2>Scope 3 Emission Distribution</h2>
                 <!-- Sales Card -->
                 <div class="col-xxl-4 col-md-4">
                     <div class="card info-card sales-card">
@@ -149,7 +149,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import SemiDonutChart from '../../shared/charts/SemiDonutChart.vue';
+import SemiDonutChart from '../../../shared/charts/SemiDonutChart.vue';
 import GrossEmissions from './gas_emissions/GrossEmissions.vue';
 import NetEmissions from './gas_emissions/NetEmissions.vue';
 import CarbonOffsets from './gas_emissions/CarbonOffsets.vue';
