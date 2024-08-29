@@ -3,21 +3,23 @@
         style="background-image: url('/assets/ui/images/sidebar.svg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                <router-link class="nav-link" to="/dashboard" exact active-class="active-link">
+                <router-link to='/dashboard' class="nav-link collapsed"
+                             :class="{ 'active-link': $route.path.startsWith('/dashboard') }"
+                             @click.native="toggleSubmenu('dashboard-nav')">
                     <i><img src="/assets/ui/images/menu-dashbaord.svg" alt="Dashboard"
-                            style="width:20px; margin-right:5px" /></i>
-                    <span class="ml-2">Dashboard</span><i></i>
+                            style="width:20px; margin-right:5px"></i>
+                    <span>Dashboard</span>
                 </router-link>
             </li>
-
             <li class="nav-item">
-                <router-link class="nav-link" to="/self_assessment" active-class="active-link">
+                <router-link to='/self_assessment' class="nav-link collapsed"
+                             :class="{ 'active-link': $route.path.startsWith('/self_assessment') }"
+                             @click.native="toggleSubmenu('self_assessment-nav')">
                     <i><img src="/assets/ui/images/SelfAssessment.svg" alt="Self Assessment"
-                            style="width:20px; margin-right:5px" /></i>
-                    <span class="ml-2">Self Assessment</span><i></i>
+                            style="width:20px; margin-right:5px"></i>
+                    <span>Self Assessment</span>
                 </router-link>
             </li>
-
             <li class="nav-item">
                 <router-link to='/ghg_management' class="nav-link collapsed"
                              :class="{ 'active-link': $route.path.startsWith('/ghg_management') }"
@@ -51,7 +53,7 @@
                              @click.native="toggleSubmenu('physical_risk-nav')">
                     <i><img src="/assets/ui/images/Physicalrisk.svg" alt="Physical Risk"
                             style="width:20px; margin-right:5px"></i>
-                    <span>Physical Risk</span><i></i>
+                    <span>Physical Risk</span>
                 </router-link>
                 <ul id="physical_risk-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
                     <li>
@@ -78,40 +80,79 @@
             </li>
 
             <li class="nav-item">
-                <router-link class="nav-link" to="/transition_risk" active-class="active-link">
+                <router-link to='/transition_risk' class="nav-link collapsed"
+                             :class="{ 'active-link': $route.path.startsWith('/transition_risk') }"
+                             @click.native="toggleSubmenu('transition_risk-nav')">
                     <i><img src="/assets/ui/images/TransitionRisk.svg" alt="Transition Risk"
                             style="width:20px; margin-right:5px"></i>
-                    <span class="ml-2">Transition Risk</span><i></i>
+                    <span>Transition Risk</span>
                 </router-link>
+                <ul id="transition_risk-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                    <li>
+                        <router-link to="/transition_risk/sectoral_analysis" active-class="active-submenu-link">
+                           <span>Sectoral Analysis</span>
+                        </router-link>
+                    </li>
+                    <li>
+                        <router-link to="/transition_risk/policy_regulations" active-class="active-submenu-link">
+                           <span>Policy & Regulations</span>
+                        </router-link>
+                    </li>
+                    <li>
+                        <router-link to="/transition_risk/technology_changes" active-class="active-submenu-link">
+                           <span>Technology Changes</span>
+                        </router-link>
+                    </li>
+                </ul>
             </li>
 
             <li class="nav-item">
-                <router-link class="nav-link" to="/carbon_offset" active-class="active-link">
+                <router-link to='/carbon_offset' class="nav-link collapsed"
+                             :class="{ 'active-link': $route.path.startsWith('/carbon_offset') }"
+                             @click.native="toggleSubmenu('carbon_offset-nav')">
                     <i><img src="/assets/ui/images/CarbonOffset.svg" alt="Carbon Offset"
                             style="width:20px; margin-right:5px"></i>
-                    <span class="ml-2">Carbon Offset</span><i></i>
+                    <span>Carbon Offset</span>
                 </router-link>
+                <ul id="carbon_offset-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                    <li>
+                        <router-link to="/carbon_offset/offset_projects" active-class="active-submenu-link">
+                           <span>Offset Projects</span>
+                        </router-link>
+                    </li>
+                    <li>
+                        <router-link to="/carbon_offset/offset_credits" active-class="active-submenu-link">
+                           <span>Offset Credits</span>
+                        </router-link>
+                    </li>
+                </ul>
             </li>
 
             <li class="nav-item">
-                <router-link class="nav-link" to="/peer_comparison" active-class="active-link">
+                <router-link to='/peer_comparison' class="nav-link collapsed"
+                             :class="{ 'active-link': $route.path.startsWith('/peer_comparison') }"
+                             @click.native="toggleSubmenu('peer_comparison-nav')">
                     <i><img src="/assets/ui/images/PeerComparison.svg" alt="Peer Comparison"
                             style="width:20px; margin-right:5px"></i>
-                    <span class="ml-2">Peer Comparison</span><i></i>
+                    <span>Peer Comparison</span>
                 </router-link>
             </li>
 
             <li class="nav-item">
-                <router-link class="nav-link" to="/reports" active-class="active-link">
+                <router-link to='/reports' class="nav-link collapsed"
+                             :class="{ 'active-link': $route.path.startsWith('/reports') }"
+                             @click.native="toggleSubmenu('reports-nav')">
                     <i><img src="/assets/ui/images/Reports.svg" alt="Reports" style="width:20px; margin-right:5px"></i>
-                    <span class="ml-2">Reports</span><i></i>
+                    <span>Reports</span>
                 </router-link>
             </li>
 
             <li class="nav-item">
-                <router-link class="nav-link" to="/help" active-class="active-link">
+                <router-link to='/help' class="nav-link collapsed"
+                             :class="{ 'active-link': $route.path.startsWith('/help') }"
+                             @click.native="toggleSubmenu('help-nav')">
                     <i><img src="/assets/ui/images/Help.svg" alt="Help" style="width:20px; margin-right:5px"></i>
-                    <span class="ml-2">Help</span><i></i>
+                    <span>Help</span>
                 </router-link>
             </li>
         </ul>
@@ -165,19 +206,6 @@ const toggleSubmenu = (submenuId) => {
 }
 
 .nav-content.show {
-    display: block;
-}
-
-.nav-content {
-    padding-left: 15px;
-}
-
-.nav-content .nav-link {
-    padding: 5px 0;
-    font-size: 14px;
-}
-
-.nav-content .active-submenu-link {
-    text-decoration: underline;
+    display: block !important;
 }
 </style>
