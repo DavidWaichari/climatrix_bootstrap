@@ -342,7 +342,7 @@ h6 {
 
 .nav-tabs-bordered .nav-link:hover,
 .nav-tabs-bordered .nav-link:focus {
-  color: #4154f1;
+  color: #d2d4e4;
 }
 
 .nav-tabs-bordered .nav-link.active {
@@ -381,7 +381,7 @@ h6 {
   z-index: 997;
   height: 60px;
   /* box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1); */
-  background-color: #fff;
+  background-color: #ffffff;
   /* padding-left: 20px; */
   /* Toggle Sidebar Button */
   /* Search Bar */
@@ -602,7 +602,7 @@ h6 {
   top: 60px;
   left: 0;
   bottom: 0;
-  /* width: 300px; */
+  width: 265px;
   z-index: 996;
   transition: all 0.3s;
   padding: 20px;
@@ -615,7 +615,7 @@ h6 {
 
 @media (max-width: 1199px) {
   .sidebar {
-    left: -300px;
+    left: -265px;
   }
 }
 
@@ -633,7 +633,7 @@ h6 {
 
   #main,
   #footer {
-    margin-left: 250px;
+    margin-left: 265px;
   }
 }
 
@@ -647,11 +647,11 @@ h6 {
 
   .toggle-sidebar #main,
   .toggle-sidebar #footer {
-    margin-left: 0;
+    margin-left: 10px;
   }
 
   .toggle-sidebar .sidebar {
-    left: -300px;
+    left: -265px;
   }
 }
 
@@ -710,13 +710,12 @@ h6 {
 }
 
 .sidebar-nav .nav-link:hover {
-  color: #4154f1;
-  background: #f6f9ff;
-
+  color: #b4bcff;
+  background: linear-gradient(to right, rgba(246, 249, 255, 0.3) 0%, rgba(246, 249, 255, 0) 100%);
 }
 
 .sidebar-nav .nav-link:hover i {
-  color: #4154f1;
+  color: #e2e5ff;
 }
 
 .sidebar-nav .nav-link .bi-chevron-down {
@@ -754,11 +753,11 @@ h6 {
 
 .sidebar-nav .nav-content a:hover,
 .sidebar-nav .nav-content a.active {
-  color: #4154f1;
+  color: #dbdefd;
 }
 
 .sidebar-nav .nav-content a.active i {
-  background-color: #4154f1;
+  background-color: #dbdefd;
 }
 
 /*--------------------------------------------------------------

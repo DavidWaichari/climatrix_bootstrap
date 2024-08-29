@@ -14,7 +14,7 @@
             <div class="row">
                 <h2>Summary</h2>
                 <div class="card">
-                    <div class="card-body p-0 pt-2">
+                    <div class="card-body p-0  pt-2">
                         <!-- Default Tabs -->
                         <ul class="nav nav-tabs d-flex" id="summaryTab" role="tablist">
                             <li class="nav-item flex-fill" role="presentation">

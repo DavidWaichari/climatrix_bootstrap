@@ -3,7 +3,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 // Import your components
-import ClientDashboard from './components/layouts/ClientDashboard.vue';
+import ClientLayout from './components/layouts/client/Layout.vue';
 
 //Auth
 import Login from './components/auth/Login.vue'
@@ -24,9 +24,9 @@ import HelpIndex from './components/client/help/Index.vue';
 const routes = [
     { path: '/login', component: Login },
     { path: '/register', component: Register },
-    { path: '/', component: ClientDashboard,
+    { path: '/', component: ClientLayout,
         children:[
-            { path: '', component: DashboardIndex },
+            { path: '/dashboard', component: DashboardIndex },
             { path: '/self_assessment', component: SelfAssessmentIndex },
             { path: '/ghg_management', component: GHGManagementIndex},
             { path: '/ghg_management/scope_one', component: GHGManagementScopeOneIndex},
