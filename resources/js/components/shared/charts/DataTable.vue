@@ -9,7 +9,7 @@
             </div>
         </div>
         <vue3-datatable :rows="rows" :columns="cols" :loading="loading" :totalRows="total_rows" :isServerMode="false"
-            :pageSize="params.pagesize" :search="params.search">
+            :pageSize="params.pagesize" :search="params.search" :sortable="true">
 
         <template #isActive="data">
             <i @click="editItem(data.value)" class="bi bi-pen-fill" style="color: #2ca55e; font-size: 20px;"></i>

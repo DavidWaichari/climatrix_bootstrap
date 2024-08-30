@@ -5,17 +5,35 @@
                 <input type="text" id="inputSearch" class="form-control" placeholder="Search..." v-model="params.search">
             </div>
             <div class="col-md-3 mb-3 d-flex justify-content-end">
-                <button @click="addData" type="button" class="btn btn-success rounded-pill">Add Data</button>
+                <button type="button" class="btn btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#largeModal">Add Data</button>
             </div>
         </div>
         <vue3-datatable :rows="rows" :columns="cols" :loading="loading" :totalRows="total_rows" :isServerMode="false"
-            :pageSize="params.pagesize" :search="params.search">
+            :pageSize="params.pagesize" :search="params.search" :sortable="true">
 
         <template #isActive="data">
             <i @click="editItem(data.value)" class="bi bi-pen-fill" style="color: #2ca55e; font-size: 20px;"></i>
             <i @click="deleteItem(data.value)" class="bi bi-trash-fill" style="color: #ffcc00; font-size: 20px; margin-left:16px"></i>
         </template>
         </vue3-datatable>
+
+        <div class="modal fade" id="largeModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Large Modal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Non omnis incidunt qui sed occaecati magni asperiores est mollitia. Soluta at et reprehenderit. Placeat autem numquam et fuga numquam. Tempora in facere consequatur sit dolor ipsum. Consequatur nemo amet incidunt est facilis. Dolorem neque recusandae quo sit molestias sint dignissimos.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success rounded-pill">Save changes</button>
+                </div>
+                </div>
+            </div>
+        </div><!-- End Large Modal-->
     </div>
 </template>
 
