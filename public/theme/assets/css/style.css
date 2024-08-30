@@ -606,6 +606,8 @@ h6 {
   z-index: 996;
   transition: all 0.3s;
   padding: 20px;
+  padding-left: 0px;
+  padding-right: 0px;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: #aab7cf transparent;
@@ -1245,3 +1247,38 @@ h6 {
     padding: 10px 0; /* Adjust padding as needed */
     z-index: 1000; /* Ensure it's above other content */
 }
+
+/*These are the styles for the data table*/
+
+/* Style for active button */
+.bh-pagination-number .bh-page-item.bh-active {
+    background-color: #45a049 !important; /* Set your desired background color for the active button */
+    color: #fff; /* Set text color */
+    font-weight: bold; /* Optional: Make the text bold */
+}
+
+/* Style for disabled button */
+.bh-pagination-number .bh-page-item.disabled {
+    background-color: #ccc; /* Set background color for disabled button */
+    color: #666; /* Set text color */
+    cursor: not-allowed; /* Change cursor to indicate disabled state */
+}
+
+/* Style for hover effect */
+.bh-pagination .bh-page-item:hover {
+    background-color: #388E3C !important; /* Set hover background color */
+    color: #fff; /* Set text color on hover */
+}
+
+.bh-table-responsive table tfoot tr th, .bh-table-responsive table thead tr th {
+    vertical-align: top;
+    font-weight: 700;
+    color:#219653;
+    font-size: 16px;
+    background-color: #EFF9F0;
+}
+
+.bh-table-responsive td {
+    font-size: 14px;
+}
+

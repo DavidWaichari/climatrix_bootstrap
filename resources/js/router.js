@@ -16,7 +16,7 @@ import GHGManagementScopeTwoIndex from './components/client/ghg_management/scope
 import GHGManagementScopeThreeIndex from './components/client/ghg_management/scope_three/Index.vue';
 import PhysicalRisktIndex from './components/client/physical_risk/main/Index.vue';
 import TransitionRisktIndex from './components/client/transition_risk/main/Index.vue';
-import CarbonOffsetIndex from './components/client/carbon_offset/Index.vue';
+import CarbonOffsetIndex from './components/client/carbon_offset/main/Index.vue';
 import PeerComparisonIndex from './components/client/peer_comparison/Index.vue';
 import ReportsIndex from './components/client/reports/Index.vue';
 import HelpIndex from './components/client/help/Index.vue';

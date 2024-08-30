@@ -97,18 +97,6 @@
                             style="width:20px; margin-right:5px"></i>
                     <span>Carbon Offset</span>
                 </router-link>
-                <ul id="carbon_offset-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-                    <li>
-                        <router-link to="/carbon_offset/offset_projects" active-class="active-submenu-link">
-                           <span>Offset Projects</span>
-                        </router-link>
-                    </li>
-                    <li>
-                        <router-link to="/carbon_offset/offset_credits" active-class="active-submenu-link">
-                           <span>Offset Credits</span>
-                        </router-link>
-                    </li>
-                </ul>
             </li>
 
             <li class="nav-item">
@@ -190,5 +178,10 @@ const toggleSubmenu = (submenuId) => {
 
 .nav-content.show {
     display: block !important;
+}
+.active-submenu-link {
+    text-decoration: underline;
+    color: white;
+
 }
 </style>
