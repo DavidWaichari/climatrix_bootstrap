@@ -15,7 +15,7 @@
                       <p class="text-success">Resend PIN</p>
                   </div>
                   <div class="text-end">
-                      <button type="submit" class="btn btn-success rounded-pill">Sign In</button>
+                      <button type="submit" class="btn btn-success rounded-pill">Confirm</button>
                   </div>
               </form>
           </div>

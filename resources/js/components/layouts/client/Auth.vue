@@ -19,7 +19,7 @@
             <div class="col-md-7 h-100 d-flex flex-column">
                 <div class="row pt-4 m-2">
                     <div class="d-flex justify-content-end gap-3">
-                        <h3 class="fw-bold text-success">Home</h3>
+                        <router-link to="/"><h3 class="fw-bold text-success">Home</h3></router-link>
                         <h3 class="fw-bold text-success">Sign In</h3>
                     </div>
                 </div>

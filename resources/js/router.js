@@ -2,6 +2,9 @@
 
 import { createRouter, createWebHistory } from 'vue-router';
 
+
+//Home Page
+import Homepage from './components/Homepage.vue';
 //Auth
 import Register from './components/auth/Register.vue'
 import Login from './components/auth/Login.vue'
@@ -24,6 +27,7 @@ import HelpIndex from './components/client/help/Index.vue';
 
 // Define your routes
 const routes = [
+    { path: '/', component: Homepage },
     { path: '/login', component: Login },
     { path: '/verify_otp', component: VerifyOtp },
     { path: '/register', component: Register },
