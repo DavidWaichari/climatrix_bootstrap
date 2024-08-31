@@ -211,10 +211,10 @@
         </li>
 
         <li>
-          <a class="dropdown-item d-flex align-items-center" href="#">
+          <router-link class="dropdown-item d-flex align-items-center" to="/login">
             <i class="bi bi-box-arrow-right"></i>
             <span>Sign Out</span>
-          </a>
+          </router-link>
         </li>
 
       </ul><!-- End Profile Dropdown Items -->
