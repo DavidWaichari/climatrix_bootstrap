@@ -612,6 +612,7 @@ h6 {
   padding: 20px;
   padding-left: 0px;
   padding-right: 0px;
+  padding-top: 50px;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: #aab7cf transparent;
@@ -624,6 +625,17 @@ h6 {
     left: -265px;
   }
 }
+@media (max-width: 320px) {
+    .logocard a {
+      display: none; /* Hides the entire logo and text */
+    }
+    .bi-list {
+      /* Ensures the toggle sidebar button remains visible */
+      display: block;
+    }
+}
+
+
 
 .sidebar::-webkit-scrollbar {
   width: 5px;

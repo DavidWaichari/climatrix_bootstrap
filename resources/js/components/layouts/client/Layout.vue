@@ -1,31 +1,30 @@
 <template>
     <div>
-          <!-- ======= Header ======= -->
+        <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
 
-<div class="d-flex align-items-center justify-content-between h-100  p-0" style="background-image: url('/assets/ui/images/sidebar.svg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-      <img src="/theme/assets/img/logo.png" alt="">
-      <span class="d-none d-lg-block text-white">Climatric</span>
-    </a>
-    <i class="bi bi-list toggle-sidebar-btn h-100" @click="toggleSidebar" style="background-color: white; padding-left: 0px; margin-right: 0px;margin-left: -15px;"></i>
-</div>
-<div class="search-bar h-100 pt-2">
-  <form class="search-form d-flex align-items-center" method="POST" action="#">
-    <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-    <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-  </form>
-</div><!-- End Search Bar -->
+<div class="d-flex align-items-center justify-content-between">
+  <a href="index.html" class="logo d-flex align-items-center">
+    <span class="d-none d-lg-block">
+        <div class="card" style="border-radius: 0px; margin: 0px; width: 265px; background-image: url('/assets/ui/images/sidebar.svg'); background-size: cover; background-position: center; background-repeat: no-repeat; padding-top: 10px; padding-bottom: 1px;">
+        <div class="card-body pt-2 pb-1">
+            <div class="d-flex justify-content-center align-items-center">
+            <div class="rounded-circle d-flex align-items-center justify-content-center" style="background-color: white; border-radius: 50%; width: 40px; height: 40px; margin-right: 5px;">
+                <span style="color:#2ca55e; font-size: xx-large;">C</span>
+            </div>
+            <div>
+                <span class="text-white small pt-1 fw-bold">Climatric</span>
+            </div>
+            </div>
+        </div>
+        </div>
+    </span>
+  </a>
+  <i class="bi bi-list toggle-sidebar-btn"  @click="toggleSidebar"></i>
+</div><!-- End Logo -->
 
-<nav class="header-nav ms-auto h-100 pt-2">
+<nav class="header-nav ms-auto">
   <ul class="d-flex align-items-center">
-
-    <li class="nav-item d-block d-lg-none">
-      <a class="nav-link nav-icon search-bar-toggle " href="#">
-        <i class="bi bi-search"></i>
-      </a>
-    </li><!-- End Search Icon-->
-
     <li class="nav-item dropdown">
 
       <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
@@ -214,10 +213,10 @@
         </li>
 
         <li>
-          <router-link class="dropdown-item d-flex align-items-center" to="/login">
+          <a class="dropdown-item d-flex align-items-center" href="#">
             <i class="bi bi-box-arrow-right"></i>
             <span>Sign Out</span>
-          </router-link>
+          </a>
         </li>
 
       </ul><!-- End Profile Dropdown Items -->
@@ -227,33 +226,33 @@
 </nav><!-- End Icons Navigation -->
 
 </header><!-- End Header -->
+        <!-- ======= Sidebar ======= -->
+        <Sidebar></Sidebar>
+        <!-- End Sidebar-->
 
-<!-- ======= Sidebar ======= -->
-<Sidebar></Sidebar>
-<!-- End Sidebar-->
 
+        <main id="main" class="main">
 
-<main id="main" class="main">
+            <router-view></router-view>
 
-<router-view></router-view>
+        </main><!-- End #main -->
 
-</main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            </div>
+        </footer><!-- End Footer -->
 
-<!-- ======= Footer ======= -->
-<footer id="footer" class="footer">
-<div class="copyright">
-  &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
-</div>
-<div class="credits">
-  <!-- All the links in the footer should remain intact. -->
-  <!-- You can delete the links only if you purchased the pro version. -->
-  <!-- Licensing information: https://bootstrapmade.com/license/ -->
-  <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-  Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-</div>
-</footer><!-- End Footer -->
-
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+                class="bi bi-arrow-up-short"></i></a>
     </div>
 </template>
 
