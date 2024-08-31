@@ -1,20 +1,18 @@
 <template>
     <div>
         <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top d-flex align-items-center">
+  <header id="header" class="header fixed-top d-flex align-items-center" style="padding-left: 0px;">
 
 <div class="d-flex align-items-center justify-content-between">
   <a href="index.html" class="logo d-flex align-items-center">
     <span class="d-none d-lg-block">
         <div class="card" style="border-radius: 0px; margin: 0px; width: 265px; background-image: url('/assets/ui/images/sidebar.svg'); background-size: cover; background-position: center; background-repeat: no-repeat; padding-top: 10px; padding-bottom: 1px;">
         <div class="card-body pt-2 pb-1">
-            <div class="d-flex justify-content-center align-items-center">
-            <div class="rounded-circle d-flex align-items-center justify-content-center" style="background-color: white; border-radius: 50%; width: 40px; height: 40px; margin-right: 5px;">
-                <span style="color:#2ca55e; font-size: xx-large;">C</span>
-            </div>
-            <div>
+            <div class="d-flex align-items-center" style="padding-left: 20px;">
+                <div class="rounded-circle d-flex align-items-center justify-content-center" style="background-color: white; border-radius: 50%; width: 40px; height: 40px; margin-right: 5px;">
+                    <span style="color:#2ca55e; font-size: xx-large;">C</span>
+                </div>
                 <span class="text-white small pt-1 fw-bold">Climatric</span>
-            </div>
             </div>
         </div>
         </div>
