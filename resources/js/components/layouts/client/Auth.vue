@@ -20,7 +20,8 @@
                 <div class="row pt-4 m-2">
                     <div class="d-flex justify-content-end gap-3">
                         <router-link to="/"><h3 class="fw-bold text-success">Home</h3></router-link>
-                        <h3 class="fw-bold text-success">Sign In</h3>
+                        <router-link to="/register"><h3 class="fw-bold text-success">Sign Up</h3></router-link>
+                        <router-link to="/login"><h3 class="fw-bold text-success">Sign In</h3></router-link>
                     </div>
                 </div>
                 <div class="flex-grow-1 d-flex align-items-center justify-content-center">
