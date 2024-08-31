@@ -2,12 +2,13 @@
 
 import { createRouter, createWebHistory } from 'vue-router';
 
-// Import your components
-import ClientLayout from './components/layouts/client/Layout.vue';
+//Auth
+import Register from './components/auth/Register.vue'
+import Login from './components/auth/Login.vue'
+import VerifyOtp from './components/auth/VerifyOtp.vue';
 
 //Auth
-import Login from './components/auth/Login.vue'
-import Register from './components/auth/Register.vue'
+import ClientLayout from './components/layouts/client/Layout.vue';
 import DashboardIndex from './components/client/dashboard/Index.vue';
 import SelfAssessmentIndex from './components/client/self_assessment/Index.vue';
 import GHGManagementIndex from './components/client/ghg_management/main/Index.vue';
@@ -20,9 +21,11 @@ import CarbonOffsetIndex from './components/client/carbon_offset/main/Index.vue'
 import PeerComparisonIndex from './components/client/peer_comparison/Index.vue';
 import ReportsIndex from './components/client/reports/Index.vue';
 import HelpIndex from './components/client/help/Index.vue';
+
 // Define your routes
 const routes = [
     { path: '/login', component: Login },
+    { path: '/verify_otp', component: VerifyOtp },
     { path: '/register', component: Register },
     { path: '/', component: ClientLayout,
         children:[
