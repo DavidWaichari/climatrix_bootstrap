@@ -9,6 +9,9 @@ import Homepage from './components/Homepage.vue';
 import Register from './components/auth/Register.vue'
 import Login from './components/auth/Login.vue'
 import VerifyOtp from './components/auth/VerifyOtp.vue';
+import ResetPassword from './components/auth/ResetPassword.vue';
+import ForgotPassword from './components/auth/ForgotPassword.vue';
+import ResetPasswordMessage from './components/auth/ResetPasswordMessage.vue';
 
 //Auth
 import ClientLayout from './components/layouts/client/Layout.vue';
@@ -31,6 +34,16 @@ const routes = [
     { path: '/login', component: Login },
     { path: '/verify_otp', component: VerifyOtp },
     { path: '/register', component: Register },
+    { path: '/forgot_password', component: ForgotPassword },
+    { path: '/reset_password_message', component: ResetPasswordMessage },
+    {
+        path: '/password/reset/:token',
+        component: ResetPassword,
+        props: (route) => ({
+            token: route.params.token,
+            email: route.query.email
+        }),
+    },
     { path: '/', component: ClientLayout,
         children:[
             { path: '/dashboard', component: DashboardIndex },
