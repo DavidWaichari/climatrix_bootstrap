@@ -40,8 +40,8 @@
                         </router-link>
                     </li>
                     <li>
-                        <router-link to="/ghg_management/scope_three" active-class="active-submenu-link">
-                           <span>GHG Scope 3</span>
+                        <router-link to="/ghg_management/scope_five" active-class="active-submenu-link">
+                           <span>GHG Scope 5</span>
                         </router-link>
                     </li>
                 </ul>
