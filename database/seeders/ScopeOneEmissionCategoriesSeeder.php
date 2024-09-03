@@ -119,7 +119,11 @@ class ScopeOneEmissionCategoriesSeeder extends Seeder
            $scope_one = ScopeOneEmissionCategory::where('name', $item['name'])->first();
 
            if (!$scope_one) {
-            ScopeOneEmissionCategory::create($item);
+            ScopeOneEmissionCategory::create([
+                'group' => $item['group'],
+                'name' => $item['name'],
+                'factor' => $item['factor'],
+            ]);
            }
         }
     }
