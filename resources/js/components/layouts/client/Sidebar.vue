@@ -2,6 +2,9 @@
     <aside id="sidebar" class="sidebar"
         style="background-image: url('/assets/ui/images/sidebar.svg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
         <ul class="sidebar-nav" id="sidebar-nav">
+            <li class="text-center p-0 m-0 pb-3 text-white">
+                <span>User</span>
+            </li>
             <li class="nav-item">
                 <router-link to='/dashboard' class="nav-link collapsed"
                              :class="{ 'active-link': $route.path.startsWith('/dashboard') }"

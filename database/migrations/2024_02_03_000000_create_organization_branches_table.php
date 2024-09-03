@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('scope_one_emission_categories', function (Blueprint $table) {
+        Schema::create('organization_branches', function (Blueprint $table) {
             $table->id();
-            $table->text('group')->nullable();
+            $table->unsignedBigInteger('organization_id')->nullable();
             $table->string('name')->nullable();
-            $table->decimal('factor', 10, 3)->default(0);
+            $table->unsignedBigInteger('city_id')->nullable();
+            $table->string('size')->nullable();
+            $table->decimal('revenue',15, 3)->default(0);
+            $table->decimal('total_employees',15, 3)->default(0);
             $table->string('status')->nullable();
             $table->text('extras')->nullable();
             $table->timestamps();
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('scope_one_emission_categories');
+        Schema::dropIfExists('organization_branches');
     }
 };

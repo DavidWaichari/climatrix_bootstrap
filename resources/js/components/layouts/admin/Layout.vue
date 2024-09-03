@@ -174,7 +174,7 @@
       <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
         <li class="dropdown-header">
           <h6>Kevin Anderson</h6>
-          <span>Client</span>
+          <span>Admin</span>
         </li>
         <li>
           <hr class="dropdown-divider">

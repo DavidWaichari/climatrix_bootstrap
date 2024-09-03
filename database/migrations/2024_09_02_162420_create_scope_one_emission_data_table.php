@@ -13,7 +13,17 @@ return new class extends Migration
     {
         Schema::create('scope_one_emission_data', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->unsignedBigInteger('organization_branch_id')->nullable();
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->timestamp('from_date')->nullable();
+            $table->timestamp('to_date')->nullable();
+            $table->decimal('units', 15, 3)->default(0);
+            $table->string('unit_of_measurement')->nullable();
+            $table->decimal('emissions_per_month', 15, 3)->default(0);
+            $table->decimal('total_ghg', 15, 3)->default(0);
+            $table->string('status')->nullable();
+            $table->text('extras')->nullable();
         });
     }
 
