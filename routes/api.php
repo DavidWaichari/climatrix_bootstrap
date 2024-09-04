@@ -27,7 +27,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
+    // Route::get('/user', function (Request $request) {
+    //     return $request->user();
+    // });
 
     // Logout route
     Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('/user', [AuthController::class, 'authUser']);
 });

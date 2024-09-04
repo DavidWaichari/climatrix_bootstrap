@@ -491,11 +491,4 @@ import axios from 'axios';
 import { onMounted } from 'vue';
 
 
-onMounted(async()=>{
-    const response = await axios.get('/api/user',{
-        
-    })
-    console.log(response)
-})
-
 </script>

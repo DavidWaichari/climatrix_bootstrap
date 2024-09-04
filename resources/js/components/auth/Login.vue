@@ -81,8 +81,6 @@
 
   const submitForm = async () => {
     try {
-        //clear the token from Local Storage
-        localStorage.removeItem('access_token');
         isLoading.value = true;
       // Clear previous errors
       errors.value = {};

@@ -261,8 +261,28 @@
 import { useRouter } from 'vue-router'
 import Sidebar from './Sidebar.vue'
 import axios from 'axios';
+import { onMounted, ref } from 'vue';
+
 
 const router = useRouter();
+
+const user = ref({});
+
+onMounted(async () => {
+    try {
+    // Check if the user is authenticated
+    const response = await axios.get('/api/user');
+
+    // If the response indicates the user is not authenticated, redirect to login
+    if (!response.data.success) {
+        router.push('/login');
+    }
+    } catch (error) {
+    // Handle network or other errors and redirect to login
+    console.error('Authentication check failed:', error);
+    router.push('/login');
+    }
+});
 
 const toggleSidebar = () => {
     document.body.classList.toggle('toggle-sidebar');
@@ -284,4 +304,6 @@ const logout = async () => {
         console.error('Error during logout:', error);
     }
 }
+
+
 </script>

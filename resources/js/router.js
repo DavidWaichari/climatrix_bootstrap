@@ -84,30 +84,5 @@ const router = createRouter({
     routes, // short for `routes: routes`
 });
 
-// Global navigation guard for protected routes
-// router.beforeEach((to, from, next) => {
-//     // List of public routes
-//     const publicPages = ['/', '/login', '/register', '/forgot_password', '/reset_password_message', '/password/reset/:token', '/verify_otp'];
-
-//     // Determine if authentication is required
-//     const authRequired = !publicPages.includes(to.path);
-
-//     // Get the token from localStorage
-//     const token = localStorage.getItem('access_token');
-
-//     // Debugging information
-//     console.log(`Navigating to: ${to.path}`);
-//     console.log(`Auth required: ${authRequired}`);
-//     console.log(`Token found: ${!!token}`);
-
-//     // Redirect to login if authentication is required and token is missing
-//     if (authRequired && !token) {
-//         return next('/login');
-//     }
-
-//     // Proceed with navigation
-//     next();
-// });
-
 
 export default router;

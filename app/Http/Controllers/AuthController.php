@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -276,6 +277,27 @@ public function logout(Request $request)
         ],
     ]);
 }
+
+public function authUser()
+{
+    $user  = Auth::user();
+    if ($user) {
+        return response()->json([
+            'success' => true,
+            'data' => [
+                'user' => $user,
+            ],
+        ]);
+    }else{
+        return response()->json([
+            'success' => false,
+            'data' => [
+                'message' => 'User is not authenticated',
+            ],
+        ]);
+    }
+}
+
 
 
 }
