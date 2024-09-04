@@ -24,14 +24,9 @@ Route::post('/reset_password', [AuthController::class, 'resetPassword']);
 
 Route::middleware('auth:sanctum')->group(function () {
     // Get authenticated user details
-    Route::get('/user', function (Request $request) {
-        return $request->user();
-    });
-    // Route::get('/user', function (Request $request) {
-    //     return $request->user();
-    // });
-
+    Route::get('/user', [AuthController::class, 'authUser']);
     // Logout route
     Route::post('/logout', [AuthController::class, 'logout']);
-    Route::get('/user', [AuthController::class, 'authUser']);
+
+    
 });

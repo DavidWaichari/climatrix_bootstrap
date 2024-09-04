@@ -16,7 +16,9 @@ class User extends Authenticatable
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
+     *
      */
+
     protected $fillable = [
         'name',
         'fist_name',
@@ -28,6 +30,7 @@ class User extends Authenticatable
         'extras',
     ];
 
+    protected $appends = ['current_logged_in_organization'];
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -47,4 +50,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function getCurrentLoggedInOrganizationAttribute()
+    {
+        //for now just just the organization where the user is admin
+        $organization = Organization::where('admin_user_id', $this->id)->first();
+        if ($organization) {
+            return $organization;
+        }
+        return null;
+    }
 }

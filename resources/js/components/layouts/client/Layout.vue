@@ -171,12 +171,12 @@
                         <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
                             data-bs-toggle="dropdown">
                             <img src="/theme/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+                            <span class="d-none d-md-block dropdown-toggle ps-2" v-if="!isLoading">{{ user.name }}</span>
                         </a><!-- End Profile Iamge Icon -->
 
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                             <li class="dropdown-header">
-                                <h6>Kevin Anderson</h6>
+                                <h6 v-if="!isLoading">{{user.name}}</h6>
                                 <span>Client</span>
                             </li>
                             <li>
@@ -267,22 +267,26 @@ import { onMounted, ref } from 'vue';
 const router = useRouter();
 
 const user = ref({});
+const isLoading = ref(false)
 
 onMounted(async () => {
-    try {
-    // Check if the user is authenticated
-    const response = await axios.get('/api/user');
+      try {
+        isLoading.value = true;
+        // Check if the user is authenticated
+        const response = await axios.get('/api/user');
 
-    // If the response indicates the user is not authenticated, redirect to login
-    if (!response.data.success) {
+        // If the response indicates the user is not authenticated, redirect to login
+        if (!response.data.success) {
+          router.push('/login');
+        }
+        isLoading.value = false;
+        user.value = response.data.data.user
+      } catch (error) {
+        // Handle network or other errors and redirect to login
+        console.error('Authentication check failed:', error);
         router.push('/login');
-    }
-    } catch (error) {
-    // Handle network or other errors and redirect to login
-    console.error('Authentication check failed:', error);
-    router.push('/login');
-    }
-});
+      }
+    });
 
 const toggleSidebar = () => {
     document.body.classList.toggle('toggle-sidebar');
