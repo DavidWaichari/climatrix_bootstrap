@@ -1,19 +1,14 @@
-// resources/js/router.js
-
 import { createRouter, createWebHistory } from 'vue-router';
 
-
-//Home Page
+// Import components
 import Homepage from './components/Homepage.vue';
-//Auth
-import Register from './components/auth/Register.vue'
-import Login from './components/auth/Login.vue'
+import Register from './components/auth/Register.vue';
+import Login from './components/auth/Login.vue';
 import VerifyOtp from './components/auth/VerifyOtp.vue';
 import ResetPassword from './components/auth/ResetPassword.vue';
 import ForgotPassword from './components/auth/ForgotPassword.vue';
 import ResetPasswordMessage from './components/auth/ResetPasswordMessage.vue';
 
-//Auth
 import ClientLayout from './components/layouts/client/Layout.vue';
 import DashboardIndex from './components/client/dashboard/Index.vue';
 import SelfAssessmentIndex from './components/client/self_assessment/Index.vue';
@@ -28,7 +23,6 @@ import PeerComparisonIndex from './components/client/peer_comparison/Index.vue';
 import ReportsIndex from './components/client/reports/Index.vue';
 import HelpIndex from './components/client/help/Index.vue';
 
-//Admin Routes
 import AdminLayout from './components/layouts/admin/Layout.vue';
 import AdminDashboard from './components/admin/dashboard/Index.vue';
 import AdminUsersAndOrganizations from './components/admin/usersandorganizations/Index.vue';
@@ -84,11 +78,36 @@ const routes = [
     }
 ];
 
-
 // Create the router instance and pass the `routes` option
 const router = createRouter({
     history: createWebHistory(),
     routes, // short for `routes: routes`
 });
+
+// Global navigation guard for protected routes
+// router.beforeEach((to, from, next) => {
+//     // List of public routes
+//     const publicPages = ['/', '/login', '/register', '/forgot_password', '/reset_password_message', '/password/reset/:token', '/verify_otp'];
+
+//     // Determine if authentication is required
+//     const authRequired = !publicPages.includes(to.path);
+
+//     // Get the token from localStorage
+//     const token = localStorage.getItem('access_token');
+
+//     // Debugging information
+//     console.log(`Navigating to: ${to.path}`);
+//     console.log(`Auth required: ${authRequired}`);
+//     console.log(`Token found: ${!!token}`);
+
+//     // Redirect to login if authentication is required and token is missing
+//     if (authRequired && !token) {
+//         return next('/login');
+//     }
+
+//     // Proceed with navigation
+//     next();
+// });
+
 
 export default router;

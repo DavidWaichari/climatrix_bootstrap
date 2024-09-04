@@ -69,27 +69,32 @@
 
   const submitForm = async () => {
     try {
-      // Clear previous errors
-      errors.value = {};
+        // Clear previous errors
+        errors.value = {};
 
-      // Send OTP verification request
-      const response = await axios.post('/api/verify_otp', form.value);
+        // Send OTP verification request
+        const response = await axios.post('/api/verify_otp', form.value);
 
-      // Handle successful verification
-      if (response.data.success) {
-        router.push('/dashboard');
-      } else {
-        // Handle errors from API
-        errors.value = {
-          general: response.data.data.message || 'An error occurred. Please try again.',
-          ...response.data.data.errors
-        };
-      }
+        // Handle successful verification
+        if (response.data.success) {
+            // Save the access token to local storage
+            const token = response.data.data.access_token;
+            localStorage.setItem('access_token', token);
+            console.log(response.data.data);
+            router.push('/dashboard');
+        } else {
+            // Handle errors from API
+            errors.value = {
+                general: response.data.data.message || 'An error occurred. Please try again.',
+                ...response.data.data.errors
+            };
+        }
     } catch (error) {
-      // Handle network errors or other issues
-      errors.value = { general: 'Something went wrong. Please try again.' };
+        // Handle network errors or other issues
+        errors.value = { general: 'Something went wrong. Please try again.' };
     }
-  };
+};
+
 
   const resendPin = async () => {
     try {

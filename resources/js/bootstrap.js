@@ -1,15 +1,27 @@
 import 'bootstrap';
-
-/**
- * We'll load the axios HTTP library which allows us to easily issue requests
- * to our Laravel back-end. This library automatically handles sending the
- * CSRF token as a header based on the value of the "XSRF" token cookie.
- */
-
 import axios from 'axios';
+
 window.axios = axios;
 
+// Set the default headers for Axios
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+// Retrieve the token from local storage and set it in the Authorization header for every request
+const token = localStorage.getItem('access_token');
+if (token) {
+    window.axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+}
+
+// Optional: You can set up an interceptor to dynamically add the token if it changes or expires
+window.axios.interceptors.request.use(config => {
+    const token = localStorage.getItem('access_token');
+    if (token) {
+        config.headers['Authorization'] = `Bearer ${token}`;
+    }
+    return config;
+}, error => {
+    return Promise.reject(error);
+});
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

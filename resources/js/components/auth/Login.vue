@@ -42,8 +42,16 @@
                 </label>
               </div>
             </div>
-            <div class="text-end">
-              <button type="submit" class="btn btn-success rounded-pill">Sign In</button>
+            <div class="text-end d-flex align-items-center justify-content-end">
+              <button type="submit" class="btn btn-success rounded-pill" v-if="!isLoading">
+                    Sign In
+                </button>
+                <div class="d-flex" v-else>
+                    <span style="font-size: 16px;"> Please wait</span> <pulse-loader :loading="true" :color="'#2ca55e'" :size="'5px'"></pulse-loader>
+                </div>
+            </div>
+            <div  class="d-flex">
+
             </div>
             <div v-if="errors.general" class="text-danger">
               {{ errors.general[0] }}
@@ -69,20 +77,24 @@
   const showPassword = ref(false);
   const router = useRouter();
 
+  const isLoading = ref(false);
 
   const submitForm = async () => {
     try {
+        //clear the token from Local Storage
+        localStorage.removeItem('access_token');
+        isLoading.value = true;
       // Clear previous errors
       errors.value = {};
 
       // Send login request
       const response = await axios.post('/api/login', form.value);
-
       // Handle successful login
       if (response.data.success) {
         // Redirect to OTP verification
         router.push('/verify_otp');
       } else {
+        isLoading.value = false;
         // Handle validation errors from API
         if (response.data.data.errors) {
           errors.value = response.data.data.errors || {};

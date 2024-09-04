@@ -22,6 +22,12 @@ Route::post('/verify_otp', [AuthController::class, 'verifyOtp']);
 Route::post('/forget_password', [AuthController::class, 'forgetPassword']);
 Route::post('/reset_password', [AuthController::class, 'resetPassword']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->group(function () {
+    // Get authenticated user details
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+
+    // Logout route
+    Route::post('/logout', [AuthController::class, 'logout']);
 });
