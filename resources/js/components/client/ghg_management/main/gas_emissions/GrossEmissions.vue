@@ -14,8 +14,8 @@ import SemiDonutChart from '../../../../shared/charts/SemiDonutChart.vue';
 
 const total_emissions = ref('0');
 onMounted(async()=>{
-    const response = await axios.get('/api/ghg_management/gross_emmisions_by_time?scope=all');
-    total_emissions.value= response.data.total_gross_emissions.toString();
+    const response = await axios.get('/api/ghg_management/gross_emmisions?scope=all');
+    total_emissions.value= response.data.data.total_gross_emissions.toString();
 });
 </script>
 

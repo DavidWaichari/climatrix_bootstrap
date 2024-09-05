@@ -14,6 +14,17 @@ use Illuminate\Support\Facades\Auth;
 class GHGManagementController extends Controller
 {
 
+    public function getGrossEmissions(Request $request)
+    {
+        $data = $this->fetchEmissions($request);
+        $emissions = $data['emissions'];
+
+        return response()->json([
+            'success' => true,
+            'data' => ["total_gross_emissions" => number_format($emissions->sum('emissions_per_month'), 2)],
+        ]);
+    }
+
     public function getGrossEmissionsByTime(Request $request)
     {
         $data = $this->fetchEmissions($request);
@@ -21,7 +32,9 @@ class GHGManagementController extends Controller
 
         $start_date = $data['start_date'];
         $end_date = $data['end_date'];
-        $gross_emissions_total = 0;
+        //for the chart
+        $labels = [];
+        $values = [];
 
         // Create an empty array to hold unique emissions.
         $emissions = [];
@@ -46,15 +59,14 @@ class GHGManagementController extends Controller
 
         // Generate all the months between start_date and end_date
         $months = $this->generateMonths($start_date, $end_date);
-        $response = [];
+
 
         // Group months into chunks of 3 (for quarterly grouping)
         $grouped_months = array_chunk($months, 3);
 
         // Loop through each group of 3 months
         foreach ($grouped_months as $group_month) {
-            $group_data = [];
-
+            $total_per_month_per_group = 0;
             // Loop through each month in the group
             foreach ($group_month as $month) {
                 $emissions_month_data = [];
@@ -62,27 +74,18 @@ class GHGManagementController extends Controller
                 // Loop through each emission and check if it belongs to the current month
                 foreach ($emissions as $emission) {
                     if (in_array($month, $emission->available_in_months)) {
-                        $gross_emissions_total += $emission->emissions_per_month;
+                        $total_per_month_per_group += $emission->emissions_per_month;
                         $emissions_month_data[] = $emission;
                     }
                 }
-
-                // Add the month's data to the group
-                $group_data[] = [
-                    "month" => $month,
-                    "emissions" => $emissions_month_data,
-                    "total_emissions" => collect($emissions_month_data)->sum('emissions_per_month')
-                ];
             }
-
-            // Add the group data to the response
-            $response[] = $group_data;
+            array_push($labels, Carbon::createFromFormat('Y-m',$group_month[2])->format('M Y'));
+            array_push($values, number_format($total_per_month_per_group));
         }
 
         return response()->json([
             'success' => true,
-            'total_gross_emissions' => number_format($gross_emissions_total, 2),
-            'data' => $response,
+            'data' => ["labels"=>$labels, "values"=>$values],
         ]);
 
     }
