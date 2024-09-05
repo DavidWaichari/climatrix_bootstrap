@@ -10,6 +10,7 @@ class OrganizationBranch extends Model
 
     // Define the fillable attributes
     protected $fillable = [
+        'id',
         'organization_id',
         'name',
         'city_id',
@@ -18,6 +19,8 @@ class OrganizationBranch extends Model
         'total_employees',
         'status',
         'extras',
+        'created_at',
+        'updated_at'
     ];
 
     /**

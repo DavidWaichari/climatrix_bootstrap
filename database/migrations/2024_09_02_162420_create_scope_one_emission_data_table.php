@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('scope_one_emission_data', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('organization_id')->nullable();
             $table->unsignedBigInteger('organization_branch_id')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();

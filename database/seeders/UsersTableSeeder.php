@@ -13,8 +13,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $users = [
-            [
+        $users = array(
+            array(
                 "id" => 1,
                 "name" => "Ozella Williamson",
                 "profile_pic" => NULL,
@@ -42,8 +42,8 @@ class UsersTableSeeder extends Seeder
                 "admin_loggedin_as_agent" => NULL,
                 "created_at" => NULL,
                 "updated_at" => NULL,
-            ],
-            [
+            ),
+            array(
                 "id" => 2,
                 "name" => "Sampath Ekanayake",
                 "profile_pic" => "profiles/2/iUW9giuV5cgSY3cyBndbbLLoVzpfhmVM5GqbQzZE.png",
@@ -71,8 +71,8 @@ class UsersTableSeeder extends Seeder
                 "admin_loggedin_as_agent" => NULL,
                 "created_at" => NULL,
                 "updated_at" => NULL,
-            ],
-            [
+            ),
+            array(
                 "id" => 3,
                 "name" => "Angela Basset",
                 "profile_pic" => NULL,
@@ -100,8 +100,8 @@ class UsersTableSeeder extends Seeder
                 "admin_loggedin_as_agent" => "{\"dnt\": [\"1\"], \"host\": [\"climatrix.ca\"], \"accept\": [\"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7\"], \"cookie\": [\"__gsas=ID=f7c98a1e0c0fa7c0:T=1711615337:RT=1711615337:S=ALNI_MZSafEvzColbRDD9N7qBMQFPs1xQg; pvisitor=b71d47d8-0544-4e45-b9ab-8039beaba3e1; XSRF-TOKEN=eyJpdiI6IlJPbEgrN1RRSlZHUzhhRXBNcFNoaUE9PSIsInZhbHVlIjoiU1FsQkJXY05VR3FSVHZZWWtwakxsZklGS3BDSW9McEJtRWNxbnVSUmtoZEVUM0RERFFpcjUrOUpOakhvSGR2NkJ6bE8ralNTTVJ4Zm9QMFdvM1V1QXRON2RoZXppUWJYdXVROXZIYzFVZVN6aUlRbmFuWll3Y0NmbVp3L1Y3V1AiLCJtYWMiOiI1Y2E2YmNhMmE0N2UxZGNiZTcwMjFiYmY2OGMyOTU5ZDE4NWE5N2ZjYTY2OWU1NzIyOTBlZmVhMmVkNTlmM2I3IiwidGFnIjoiIn0%3D; climatrix_session=eyJpdiI6IldEZWltU0o1dExjQ1NxNzhnQ2ZralE9PSIsInZhbHVlIjoiendmejFNbnJyeTdwQ0hNQk9BZHlIUzhObG9WN0NHMG9jOUticnJrQlNnYXZ0WXVXUkJuRDVlZDhsdmtESi80VVRFSlNWK0QyMUpnTU9HYjJJS0RwSjQ0SVlESCtqSk9VZmpDNXFxVldSQ2lpOUJsaGtnMnpKWXExWVFkOVQzQkYiLCJtYWMiOiI4MTFkNDBhZWY3ZDI2MzBmYjE2OTE3YjAyZjZmODAyN2VlNjJkYjZhNWYxZDEyNWEwODk2NDU4ZWQ4ZDU3ZTIzIiwidGFnIjoiIn0%3D\"], \"referer\": [\"https://climatrix.ca/climatrix-admin/users/customers\"], \"sec-ch-ua\": [\"\\\"Google Chrome\\\";v=\\\"123\\\", \\\"Not:A-Brand\\\";v=\\\"8\\\", \\\"Chromium\\\";v=\\\"123\\\"\"], \"x-user-ip\": [null], \"connection\": [\"keep-alive\"], \"user-agent\": [\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36\"], \"sec-fetch-dest\": [\"document\"], \"sec-fetch-mode\": [\"navigate\"], \"sec-fetch-site\": [\"same-origin\"], \"sec-fetch-user\": [\"?1\"], \"accept-encoding\": [\"gzip, deflate, br, zstd\"], \"accept-language\": [\"en-US,en;q=0.9\"], \"sec-ch-ua-mobile\": [\"?0\"], \"sec-ch-ua-platform\": [\"\\\"Windows\\\"\"], \"upgrade-insecure-requests\": [\"1\"]}",
                 "created_at" => NULL,
                 "updated_at" => NULL,
-            ],
-            [
+            ),
+            array(
                 "id" => 4,
                 "name" => "Sampath Ekanayake",
                 "profile_pic" => NULL,
@@ -129,8 +129,8 @@ class UsersTableSeeder extends Seeder
                 "admin_loggedin_as_agent" => NULL,
                 "created_at" => NULL,
                 "updated_at" => NULL,
-            ],
-            [
+            ),
+            array(
                 "id" => 5,
                 "name" => "Dheelaka Amarasekara",
                 "profile_pic" => "profiles/5/rev7PHpPkcYIlS8gA4XNlvQB8MxsDDy2Rch4ZTx0.jpg",
@@ -158,8 +158,8 @@ class UsersTableSeeder extends Seeder
                 "admin_loggedin_as_agent" => NULL,
                 "created_at" => NULL,
                 "updated_at" => NULL,
-            ],
-            [
+            ),
+            array(
                 "id" => 6,
                 "name" => "Test 2 Mike",
                 "profile_pic" => NULL,
@@ -187,8 +187,8 @@ class UsersTableSeeder extends Seeder
                 "admin_loggedin_as_agent" => NULL,
                 "created_at" => NULL,
                 "updated_at" => NULL,
-            ],
-            [
+            ),
+            array(
                 "id" => 7,
                 "name" => "Test 3 Viviyane",
                 "profile_pic" => NULL,
@@ -216,8 +216,8 @@ class UsersTableSeeder extends Seeder
                 "admin_loggedin_as_agent" => NULL,
                 "created_at" => NULL,
                 "updated_at" => NULL,
-            ],
-            [
+            ),
+            array(
                 "id" => 8,
                 "name" => "Leyla Test",
                 "profile_pic" => NULL,
@@ -245,8 +245,8 @@ class UsersTableSeeder extends Seeder
                 "admin_loggedin_as_agent" => NULL,
                 "created_at" => NULL,
                 "updated_at" => NULL,
-            ],
-            [
+            ),
+            array(
                 "id" => 9,
                 "name" => "Bike Test",
                 "profile_pic" => NULL,
@@ -274,8 +274,8 @@ class UsersTableSeeder extends Seeder
                 "admin_loggedin_as_agent" => NULL,
                 "created_at" => NULL,
                 "updated_at" => NULL,
-            ],
-            [
+            ),
+            array(
                 "id" => 10,
                 "name" => "Leyla Climatric",
                 "profile_pic" => NULL,
@@ -303,8 +303,8 @@ class UsersTableSeeder extends Seeder
                 "admin_loggedin_as_agent" => NULL,
                 "created_at" => NULL,
                 "updated_at" => NULL,
-            ],
-            [
+            ),
+            array(
                 "id" => 11,
                 "name" => "Doug Ebner",
                 "profile_pic" => NULL,
@@ -332,8 +332,8 @@ class UsersTableSeeder extends Seeder
                 "admin_loggedin_as_agent" => NULL,
                 "created_at" => NULL,
                 "updated_at" => NULL,
-            ],
-            [
+            ),
+            array(
                 "id" => 12,
                 "name" => "Ranil wickramasiri",
                 "profile_pic" => NULL,
@@ -361,8 +361,8 @@ class UsersTableSeeder extends Seeder
                 "admin_loggedin_as_agent" => NULL,
                 "created_at" => NULL,
                 "updated_at" => NULL,
-            ],
-            [
+            ),
+            array(
                 "id" => 13,
                 "name" => "Ea nobis consequatur Ut voluptatem offici",
                 "profile_pic" => NULL,
@@ -390,8 +390,8 @@ class UsersTableSeeder extends Seeder
                 "admin_loggedin_as_agent" => NULL,
                 "created_at" => NULL,
                 "updated_at" => NULL,
-            ],
-            [
+            ),
+            array(
                 "id" => 14,
                 "name" => "Test Mike",
                 "profile_pic" => NULL,
@@ -419,8 +419,8 @@ class UsersTableSeeder extends Seeder
                 "admin_loggedin_as_agent" => NULL,
                 "created_at" => NULL,
                 "updated_at" => NULL,
-            ],
-            [
+            ),
+            array(
                 "id" => 15,
                 "name" => "Breanna Jeebe",
                 "profile_pic" => NULL,
@@ -448,8 +448,8 @@ class UsersTableSeeder extends Seeder
                 "admin_loggedin_as_agent" => NULL,
                 "created_at" => NULL,
                 "updated_at" => NULL,
-            ],
-            [
+            ),
+            array(
                 "id" => 16,
                 "name" => "Chuck Lew",
                 "profile_pic" => NULL,
@@ -477,8 +477,8 @@ class UsersTableSeeder extends Seeder
                 "admin_loggedin_as_agent" => NULL,
                 "created_at" => NULL,
                 "updated_at" => NULL,
-            ],
-            [
+            ),
+            array(
                 "id" => 17,
                 "name" => "James Muriithi",
                 "profile_pic" => NULL,
@@ -506,8 +506,8 @@ class UsersTableSeeder extends Seeder
                 "admin_loggedin_as_agent" => NULL,
                 "created_at" => NULL,
                 "updated_at" => NULL,
-            ],
-            [
+            ),
+            array(
                 "id" => 18,
                 "name" => "john doe",
                 "profile_pic" => NULL,
@@ -535,8 +535,9 @@ class UsersTableSeeder extends Seeder
                 "admin_loggedin_as_agent" => NULL,
                 "created_at" => NULL,
                 "updated_at" => NULL,
-            ],
-        ];
+            ),
+        );
+
 
         foreach ($users as $user) {
             // Check if the user with the given email already exists
@@ -545,11 +546,23 @@ class UsersTableSeeder extends Seeder
             if (!$available) {
                 // Create a new user if they don't already exist
                 User::create([
+                    'id' => $user['id'],
                     'name' => $user['name'],
                     'first_name' => $user['firstname'],
                     'last_name' => $user['lastname'],
+                    'is_system_admin'=> $user['is_system_admin'],
+                    'last_login'=>$user['last_login'],
+                    'account_opening_date' => $user['account_opening_date'],
+                    'account_status'=>$user['account_status'],
+                    "failed_login_attempts" => $user['failed_login_attempts'],
+                    "account_closure_date" => $user['account_closure_date'],
+                    "account_closure_reason" => $user['account_closure_reason'],
                     'email' => $user['email'],
-                    'password' => bcrypt('1234'), // Default password
+                    'created_by'=>$user['created_by'],
+                    'created_at'=>$user['created_at'],
+                    'updated_at'=>$user['updated_at'],
+                    'password' => bcrypt('1234'),
+                     // Default password
                 ]);
             }
         }

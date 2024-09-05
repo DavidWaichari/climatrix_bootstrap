@@ -506,6 +506,8 @@ class OrganizationsTableSeeder extends Seeder
                     'admin_user_id' => $org['admin_user_id'],
                     'created_by' => $org['created_by'],
                     'last_login' => $org['last_login'],
+                    "created_at" => $org['created_at'],
+                    "updated_at" => $org['updated_at'],
                     'status' => $org['status']
                 ]);
             }

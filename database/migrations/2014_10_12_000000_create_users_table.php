@@ -21,9 +21,19 @@ return new class extends Migration
             $table->string('password');
             $table->string('otp')->nullable();
             $table->string('status')->nullable();
-            $table->text('extras')->nullable();
+            $table->boolean('is_system_admin')->default(false);
+            $table->timestamp('last_login')->nullable();
+            $table->timestamp('account_opening_date')->nullable();
+            $table->string('account_status')->nullable();
+            $table->integer('failed_login_attempts')->default(0);
+            $table->timestamp('account_closure_date')->nullable();
+            $table->string('account_closure_reason')->nullable();
+            $table->unsignedBigInteger('created_by')->nullable();
             $table->rememberToken();
             $table->timestamps();
+
+            // Optional: Add foreign key constraint if necessary
+            // $table->foreign('created_by')->references('id')->on('users');
         });
     }
 

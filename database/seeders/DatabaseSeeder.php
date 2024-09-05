@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ScopeTwoEmissionDataTableSeeder::class);
         $this->call(ScopeFiveEmissionCategoriesSeeder::class);
         $this->call(ScopeFiveEmissionDataTableSeeder::class);
+        $this->call(OrganizationUserTableSeeder::class);
 
     }
 }

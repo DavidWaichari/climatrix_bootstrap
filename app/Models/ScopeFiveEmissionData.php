@@ -11,6 +11,7 @@ class ScopeFiveEmissionData extends Model
     // Fillable attributes
     protected $fillable = [
         'id',
+        'organization_id',
         'organization_branch_id',
         'category_id',
         'user_id',
@@ -22,6 +23,8 @@ class ScopeFiveEmissionData extends Model
         'total_ghg',
         'status',
         'extras',
+        'created_at',
+        'updated_at'
     ];
 
     // Relationships
@@ -29,6 +32,11 @@ class ScopeFiveEmissionData extends Model
     /**
      * Get the organization branch that owns the ScopeFiveEmissionData.
      */
+    public function organization()
+    {
+        return $this->belongsTo(Organization::class, 'organization_branch_id');
+    }
+
     public function organizationBranch()
     {
         return $this->belongsTo(OrganizationBranch::class, 'organization_branch_id');

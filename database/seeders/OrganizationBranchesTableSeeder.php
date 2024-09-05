@@ -264,14 +264,19 @@ class OrganizationBranchesTableSeeder extends Seeder
             $city = City::where('name', $branch['city'])->first();
 
             // If the branch does not exist and the city is found, create a new branch
-            if (!$available && $city) {
+
+            if (!$available) {
                 OrganizationBranch::create([
+                    'id' => $branch['id'],
                     'organization_id' => $branch['organization_id'],
                     'name' => $branch['name'],
-                    'city_id' => $city->id, // Use the city ID fetched from the City model
+                    'city_id' => null,
                     'size' => $branch['size'],
                     'revenue' => $branch['revenue'],
                     'total_employees' => $branch['total_employees'],
+                    "created_at" => $branch['created_at'],
+                    "updated_at" => $branch['updated_at'],
+                    'extras' => json_encode(['city' => $branch['city']]) // Encode the array as JSON
                 ]);
             }
         }

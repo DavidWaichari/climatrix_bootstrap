@@ -148,6 +148,8 @@ class ScopeTwoEmissionCategoriesSeeder extends Seeder
                     'group' => $item['group'],
                     'name' => $item['name'],
                     'factor' => $item['factor'],
+                    "created_at" => $item['created_at'],
+                "updated_at" => $item['updated_at'],
                 ]);
             }
         }

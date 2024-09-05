@@ -197,6 +197,7 @@ class ScopeTwoEmissionDataTableSeeder extends Seeder
             // Insert data into ScopeTwoEmissionData model
             ScopeTwoEmissionData::create([
                 'id'=> $data['id'],
+                'organization_id'=> $data['organization_id'],
                 'organization_branch_id' => $data['location'],
                 'category_id' => $data['category_id'],
                 'user_id' => $data['user_id'],
@@ -206,6 +207,8 @@ class ScopeTwoEmissionDataTableSeeder extends Seeder
                 'unit_of_measurement' => $data['unit_of_measurements'],
                 'emissions_per_month' => $emissions_per_month,
                 'total_ghg' => $data['total_ghg'],
+                "created_at" => $data['created_at'],
+                "updated_at" => $data['updated_at'],
             ]);
         }
 

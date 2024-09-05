@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -16,21 +16,26 @@ class User extends Authenticatable
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
-     *
      */
-
     protected $fillable = [
+        'id',
         'name',
-        'fist_name',
+        'first_name',
         'last_name',
         'email',
         'password',
-        'otp',
-        'status',
-        'extras',
+        'is_system_admin',
+        'last_login',
+        'account_opening_date',
+        'account_status',
+        'failed_login_attempts',
+        'account_closure_date',
+        'account_closure_reason',
+        'created_by',
+        'created_at',
+        'updated_at'
     ];
 
-    protected $appends = ['current_logged_in_organization'];
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -49,11 +54,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'account_opening_date' => 'datetime',
+        'last_login' => 'datetime',
+        'account_closure_date' => 'datetime',
     ];
 
+    /**
+     * Get the current logged-in organization for the user.
+     */
     public function getCurrentLoggedInOrganizationAttribute()
     {
-        //for now just just the organization where the user is admin
         $organization = Organization::where('admin_user_id', $this->id)->first();
         if ($organization) {
             return $organization;

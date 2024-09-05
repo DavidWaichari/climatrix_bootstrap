@@ -17,5 +17,7 @@ class ScopeFiveEmissionCategory extends Model
         'factor',
         'status',
         'extras',
+        'created_at',
+        'updated_at'
     ];
 }
