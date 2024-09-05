@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->integer('current_logged_in_organization')->nullable();
             $table->string('name');
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
@@ -33,7 +34,7 @@ return new class extends Migration
             $table->timestamps();
 
             // Optional: Add foreign key constraint if necessary
-            // $table->foreign('created_by')->references('id')->on('users');
+            $table->foreign('created_by')->references('id')->on('users')->onDelete('SET NULL');
         });
     }
 

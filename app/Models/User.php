@@ -19,6 +19,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'id',
+        'current_logged_in_organization',
         'name',
         'first_name',
         'last_name',
@@ -59,15 +60,10 @@ class User extends Authenticatable
         'account_closure_date' => 'datetime',
     ];
 
-    /**
-     * Get the current logged-in organization for the user.
-     */
-    public function getCurrentLoggedInOrganizationAttribute()
+
+
+     public function organizations()
     {
-        $organization = Organization::where('admin_user_id', $this->id)->first();
-        if ($organization) {
-            return $organization;
-        }
-        return null;
+        return $this->belongsToMany(Organization::class);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Organization;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -113,7 +114,10 @@ class AuthController extends Controller
 
         // OTP verified, create and return the token
         $token = $user->createToken('auth_token')->plainTextToken;
-
+        $organization = $user->organizations->first();
+        if ($organization) {
+            $user->current_logged_in_organization = $organization->id;
+        }
         // Clear OTP after successful verification
         $user->otp = null;
         $user->save();
