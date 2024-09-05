@@ -5,24 +5,35 @@
         <div class="d-flex flex-column">
             <!-- Pass props to BarChart component -->
             <BarChart
-                :series="branchSeries"
-                :colors="branchColors"
-                :categories="branchCategories"
+                :series="series"
+                :colors="colors"
+                :categories="labels"
             />
         </div>
     </div>
 </template>
 
 <script setup>
+import { onMounted, ref } from 'vue';
+import axios from 'axios'; // Ensure axios is imported
 import BarChart from '../../../../shared/charts/BarChart.vue';
 
-// Define the data you want to pass as props
-const branchSeries = [
-    { data: [300, 500, 700, 1000, 1200] }
-];
+// Define the props to pass to the LineChart component
+const series = ref([{ name: 'Emissions', data: [] }]);
+const colors = ['#4CAF50']; // Example color
+const labels = ref([]);
 
-const branchColors = ['#4CAF50']; // Example color
-
-const branchCategories = ['Branch 1', 'Branch 2', 'Branch 3', 'Branch 4', 'Branch 5'];
-
+// Fetch the data and format it
+onMounted(async () => {
+    try {
+        const response = await axios.get('/api/ghg_management/gross_emmisions_by_branch?scope=all');
+        const data = response.data.data;
+        console.log(data)
+        // Map series and labels from API response
+        labels.value = data.labels; // Fixed typo
+        series.value = [{ name: 'Emissions', data: data.values.map(value => parseFloat(value.replace(/,/g, ''))) }];
+    } catch (error) {
+        console.error('Error fetching emissions data:', error);
+    }
+});
 </script>
