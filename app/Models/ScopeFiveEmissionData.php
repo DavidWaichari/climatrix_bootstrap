@@ -1,6 +1,7 @@
 <?php
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -27,7 +28,9 @@ class ScopeFiveEmissionData extends Model
         'updated_at'
     ];
 
-    // Relationships
+    protected $appends =[
+        'available_in_months'
+    ];
 
     /**
      * Get the organization branch that owns the ScopeFiveEmissionData.
@@ -56,5 +59,19 @@ class ScopeFiveEmissionData extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function getAvailableInMonthsAttribute()
+    {
+        $start = Carbon::parse($this->from_date)->startOfMonth();
+        $end = Carbon::parse($this->to_date)->endOfMonth();
+        $months = [];
+
+        while ($start->lessThanOrEqualTo($end)) {
+            $months[] = $start->format('Y-m');
+            $start->addMonth();
+        }
+
+        return $months;
     }
 }
