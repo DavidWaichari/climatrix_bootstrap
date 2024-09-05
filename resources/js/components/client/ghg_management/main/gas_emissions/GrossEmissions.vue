@@ -9,6 +9,12 @@
     </div>
 </template>
 <script setup>
+import { onMounted } from 'vue';
 import SemiDonutChart from '../../../../shared/charts/SemiDonutChart.vue';
+
+onMounted(async()=>{
+    const response = await axios.get('/api/ghg_management/gross_emmisions?scope=scope_five');
+    console.log(response.data);
+});
 </script>
 

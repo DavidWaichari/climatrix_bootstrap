@@ -355,6 +355,7 @@ class ScopeFiveEmissionCategoriesSeeder extends Seeder
 
             if (!$scope_five) {
                 ScopeFiveEmissionCategory::create([
+                    'id'=>$item['id'],
                     'group' => $item['group'],
                     'name' => $item['name'],
                     'factor' => $item['factor'],

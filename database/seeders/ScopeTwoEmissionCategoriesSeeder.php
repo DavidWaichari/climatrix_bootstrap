@@ -144,6 +144,7 @@ class ScopeTwoEmissionCategoriesSeeder extends Seeder
             if (!$scope_two) {
                 // Create a new category if it doesn't already exist
                 ScopeTwoEmissionCategory::create([
+                    'id'=>$item['id'],
                     'group' => $item['group'],
                     'name' => $item['name'],
                     'factor' => $item['factor'],

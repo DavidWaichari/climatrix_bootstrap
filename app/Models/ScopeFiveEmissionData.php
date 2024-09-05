@@ -10,6 +10,7 @@ class ScopeFiveEmissionData extends Model
 
     // Fillable attributes
     protected $fillable = [
+        'id',
         'organization_branch_id',
         'category_id',
         'user_id',

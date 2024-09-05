@@ -10,6 +10,7 @@ class ScopeFiveEmissionCategory extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
         'group',
         'name',
         'status',

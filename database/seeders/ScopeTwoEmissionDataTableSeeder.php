@@ -196,6 +196,7 @@ class ScopeTwoEmissionDataTableSeeder extends Seeder
 
             // Insert data into ScopeTwoEmissionData model
             ScopeTwoEmissionData::create([
+                'id'=> $data['id'],
                 'organization_branch_id' => $data['location'],
                 'category_id' => $data['category_id'],
                 'user_id' => $data['user_id'],
