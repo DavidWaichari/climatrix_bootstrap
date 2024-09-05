@@ -177,7 +177,7 @@
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                             <li class="dropdown-header">
                                 <h6 v-if="!isLoading">{{user.name}}</h6>
-                                <span>Client</span>
+                                <span v-if="!isLoading">{{current_organization.name}}</span>
                             </li>
                             <li>
                                 <hr class="dropdown-divider">
@@ -267,6 +267,7 @@ import { onMounted, ref } from 'vue';
 const router = useRouter();
 
 const user = ref({});
+const current_organization = ref({});
 const isLoading = ref(false)
 
 onMounted(async () => {
@@ -281,6 +282,7 @@ onMounted(async () => {
         }
         isLoading.value = false;
         user.value = response.data.data.user
+        current_organization.value = response.data.data.user.current_organization
       } catch (error) {
         // Handle network or other errors and redirect to login
         console.error('Authentication check failed:', error);

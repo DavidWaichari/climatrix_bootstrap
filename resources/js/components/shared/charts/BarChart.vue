@@ -25,7 +25,6 @@ const props = defineProps({
     }
 });
 
-// Compute chart options based on props
 const chartOptions = computed(() => ({
     chart: {
         type: 'bar',
@@ -35,7 +34,7 @@ const chartOptions = computed(() => ({
         bar: {
             borderRadius: 4,
             borderRadiusApplication: 'end',
-            horizontal: true,
+            horizontal: false, // Set horizontal to false to make the bars vertical
         }
     },
     colors: props.colors, // Use the colors passed as props
@@ -46,16 +45,100 @@ const chartOptions = computed(() => ({
         categories: props.categories, // Use the categories passed as props
         labels: {
             style: {
-                fontSize: '14px', // Increase the font size for x-axis labels
+                fontSize: '12px', // Adjust the font size for x-axis labels
             }
         }
     },
     yaxis: {
         labels: {
             style: {
-                fontSize: '14px', // Increase the font size for y-axis labels
+                fontSize: '14px', // Adjust the font size for y-axis labels
             }
         }
-    }
+    },
+    // responsive: [{
+    //     breakpoint: 768, // Adjust for medium screens
+    //     options: {
+    //         plotOptions: {
+    //             bar: {
+    //                 borderRadius: 4,
+    //                 borderRadiusApplication: 'end',
+    //             }
+    //         },
+    //         xaxis: {
+    //             labels: {
+    //                 style: {
+    //                     fontSize: '10px' // Decrease font size on x-axis for medium screens
+    //                 }
+    //             }
+    //         },
+    //         yaxis: {
+    //             labels: {
+    //                 style: {
+    //                     fontSize: '10px' // Decrease font size on y-axis for medium screens
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }, {
+    //     breakpoint: 480, // Adjust for small screens
+    //     options: {
+    //         plotOptions: {
+    //             bar: {
+    //                 borderRadius: 4,
+    //                 borderRadiusApplication: 'end',
+    //             }
+    //         },
+    //         xaxis: {
+    //             labels: {
+    //                 style: {
+    //                     fontSize: '8px' // Further decrease font size on x-axis for small screens
+    //                 }
+    //             }
+    //         },
+    //         yaxis: {
+    //             labels: {
+    //                 style: {
+    //                     fontSize: '8px' // Further decrease font size on y-axis for small screens
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }]
 }));
+
+
+// Compute chart options based on props
+// const chartOptions = computed(() => ({
+//     chart: {
+//         type: 'bar',
+//         height: 350
+//     },
+//     plotOptions: {
+//         bar: {
+//             borderRadius: 4,
+//             borderRadiusApplication: 'end',
+//             horizontal: true,
+//         }
+//     },
+//     colors: props.colors, // Use the colors passed as props
+//     dataLabels: {
+//         enabled: false
+//     },
+//     xaxis: {
+//         categories: props.categories, // Use the categories passed as props
+//         labels: {
+//             style: {
+//                 fontSize: '14px', // Increase the font size for x-axis labels
+//             }
+//         }
+//     },
+//     yaxis: {
+//         labels: {
+//             style: {
+//                 fontSize: '12px', // Increase the font size for y-axis labels
+//             }
+//         }
+//     }
+// }));
 </script>

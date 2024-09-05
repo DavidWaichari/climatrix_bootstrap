@@ -29,7 +29,8 @@ class ScopeFiveEmissionData extends Model
     ];
 
     protected $appends =[
-        'available_in_months'
+        'available_in_months',
+        'scope_name'
     ];
 
     /**
@@ -73,5 +74,9 @@ class ScopeFiveEmissionData extends Model
         }
 
         return $months;
+    }
+    public function getScopeNameAttribute()
+    {
+        return 'scope_five';
     }
 }

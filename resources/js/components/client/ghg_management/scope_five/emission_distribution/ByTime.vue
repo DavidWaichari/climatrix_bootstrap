@@ -27,8 +27,6 @@ onMounted(async () => {
     try {
         const response = await axios.get('/api/ghg_management/gross_emmisions_by_time?scope=scope_five');
         const data = response.data.data;
-        console.log(data);
-
         // Map series and categories from API response
         timeCategories.value = data.labels; // Fixed typo
         timeSeries.value = [{ name: 'Emissions', data: data.values.map(value => parseFloat(value.replace(/,/g, ''))) }];

@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Organization;
+use App\Models\ScopeFiveEmissionCategory;
 use App\Models\ScopeFiveEmissionData;
+use App\Models\ScopeOneEmissionCategory;
 use App\Models\ScopeOneEmissionData;
+use App\Models\ScopeTwoEmissionCategory;
 use App\Models\ScopeTwoEmissionData;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
@@ -91,6 +94,91 @@ class GHGManagementController extends Controller
     }
 
 
+    public function getGrossEmissionsByCategory(Request $request)
+{
+    // Fetch the emissions data
+    $data = $this->fetchEmissions($request);
+    $emissions = $data['emissions'];
+    //for the charts
+    $labels = [];
+    $values = [];
+
+    // Initialize collections for each scope
+    $scope_one_emissions = collect();
+    $scope_two_emissions = collect();
+    $scope_five_emissions = collect();
+
+    // Separate emissions by scope name and group by category_id
+    foreach ($emissions as $emission) {
+        if ($emission->scope_name == 'scope_one') {
+            $scope_one_emissions->push($emission);
+        } elseif ($emission->scope_name == 'scope_two') {
+            $scope_two_emissions->push($emission);
+        } elseif ($emission->scope_name == 'scope_five') {
+            $scope_five_emissions->push($emission);
+        }
+    }
+
+    // Group each scope's emissions by category_id
+    $grouped_scope_one = $scope_one_emissions->groupBy('category_id');
+    $grouped_scope_two = $scope_two_emissions->groupBy('category_id');
+    $grouped_scope_five = $scope_five_emissions->groupBy('category_id');
+
+    // Merge all grouped emissions into one collection
+    $merged_emissions = collect();
+
+    foreach ($grouped_scope_one as $category_id => $emissions) {
+        $merged_emissions->push([
+            'category_id' => $category_id,
+            'category_name' => ScopeOneEmissionCategory::find($category_id)->name,
+            'scope_name' => 'scope_one',
+            'emissions' => $emissions,
+            'total_emissions' => $emissions->sum('emissions_per_month')
+        ]);
+    }
+
+    foreach ($grouped_scope_two as $category_id => $emissions) {
+        $merged_emissions->push([
+            'category_id' => $category_id,
+            'category_name' =>ScopeTwoEmissionCategory::find($category_id)->name,
+            'scope_name' => 'scope_two',
+            'emissions' => $emissions,
+            'total_emissions' => $emissions->sum('emissions_per_month')
+        ]);
+    }
+
+    foreach ($grouped_scope_five as $category_id => $emissions) {
+        $merged_emissions->push([
+            'category_id' => $category_id,
+            'category_name' =>ScopeFiveEmissionCategory::find($category_id)->name,
+            'scope_name' => 'scope_five',
+            'emissions' => $emissions,
+            'total_emissions' => $emissions->sum('emissions_per_month')
+        ]);
+    }
+
+    // Sort the merged emissions by total_emissions in descending order
+    $sorted_emissions = $merged_emissions->sortByDesc('total_emissions')->values();
+
+    // Take the top 5 groups
+    $top_emissions = $sorted_emissions->take(5);
+    foreach ($top_emissions as $group) {
+        $name =$group['category_name'];
+        if ($name == "Natural Gas: Heaters, furnaces, and stationary engines.") {
+            $name = "Natural Gas";
+        }else if ($name == "Average Car - Diesel") {
+            $name = "Diesel";
+        }else if($name == "Average Car - Petrol"){
+            $name = "Petrol";
+        }
+       array_push($labels, $name);
+       array_push($values, number_format($group['total_emissions'],2));
+    }
+    return response()->json([
+        'success' => true,
+        'data' => ["labels"=>$labels, "values"=>$values],
+    ]);
+}
 
 
 

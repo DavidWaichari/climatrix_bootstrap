@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -60,10 +59,15 @@ class User extends Authenticatable
         'account_closure_date' => 'datetime',
     ];
 
+    protected $appends = ['current_organization'];
 
-
-     public function organizations()
+    public function organizations()
     {
         return $this->belongsToMany(Organization::class);
+    }
+
+    public function getCurrentOrganizationAttribute()
+    {
+        return Organization::find($this->current_logged_in_organization);
     }
 }

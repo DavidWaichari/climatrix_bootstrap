@@ -29,7 +29,7 @@ class ScopeTwoEmissionData extends Model
     ];
 
     protected $appends =[
-        'available_in_months'
+        'available_in_months','scope_name'
     ];
     // Relationships
     public function organization()
@@ -72,5 +72,9 @@ class ScopeTwoEmissionData extends Model
         }
 
         return $months;
+    }
+    public function getScopeNameAttribute()
+    {
+        return 'scope_two';
     }
 }

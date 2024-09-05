@@ -262,11 +262,11 @@ public function sendOtp($user)
     $user->otp = $otp;
     $user->save();
 
-    // // Send OTP to the user's email, passing both 'otp' and 'user' variables to the view
-    // Mail::send('emails.climatric.otp', ['otp' => $otp, 'user' => $user], function($message) use ($user) {
-    //     $message->to($user->email)
-    //             ->subject('Your OTP Code');
-    // });
+    // Send OTP to the user's email, passing both 'otp' and 'user' variables to the view
+    Mail::send('emails.climatric.otp', ['otp' => $otp, 'user' => $user], function($message) use ($user) {
+        $message->to($user->email)
+                ->subject('Your OTP Code');
+    });
 }
 
 public function logout(Request $request)

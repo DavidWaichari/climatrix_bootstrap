@@ -30,5 +30,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/ghg_management/gross_emmisions', [GHGManagementController::class, 'getGrossEmissions']);
     Route::get('/ghg_management/gross_emmisions_by_time', [GHGManagementController::class, 'getGrossEmissionsByTime']);
+    Route::get('/ghg_management/gross_emmisions_by_category', [GHGManagementController::class, 'getGrossEmissionsByCategory']);
 
 });
