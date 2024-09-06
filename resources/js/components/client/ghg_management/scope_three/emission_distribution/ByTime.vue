@@ -25,7 +25,7 @@ const timeCategories = ref([]);
 // Fetch the data and format it
 onMounted(async () => {
     try {
-        const response = await axios.get('/api/ghg_management/gross_emmisions_by_time?scope=scope_five');
+        const response = await axios.get('/api/ghg_management/gross_emmisions_by_time?scope=scope_three');
         const data = response.data.data;
         // Map series and categories from API response
         timeCategories.value = data.labels; // Fixed typo

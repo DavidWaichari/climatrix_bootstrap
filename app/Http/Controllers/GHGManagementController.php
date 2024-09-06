@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Organization;
 use App\Models\OrganizationBranch;
-use App\Models\ScopeFiveEmissionCategory;
-use App\Models\ScopeFiveEmissionData;
+use App\Models\ScopeThreeEmissionCategory;
+use App\Models\ScopeThreeEmissionData;
 use App\Models\ScopeOneEmissionCategory;
 use App\Models\ScopeOneEmissionData;
 use App\Models\ScopeTwoEmissionCategory;
@@ -106,7 +106,7 @@ class GHGManagementController extends Controller
         // Initialize collections for each scope
         $scope_one_emissions = collect();
         $scope_two_emissions = collect();
-        $scope_five_emissions = collect();
+        $scope_three_emissions = collect();
 
         // Separate emissions by scope name and group by category_id
         foreach ($emissions as $emission) {
@@ -114,15 +114,15 @@ class GHGManagementController extends Controller
                 $scope_one_emissions->push($emission);
             } elseif ($emission->scope_name == 'scope_two') {
                 $scope_two_emissions->push($emission);
-            } elseif ($emission->scope_name == 'scope_five') {
-                $scope_five_emissions->push($emission);
+            } elseif ($emission->scope_name == 'scope_three') {
+                $scope_three_emissions->push($emission);
             }
         }
 
         // Group each scope's emissions by category_id
         $grouped_scope_one = $scope_one_emissions->groupBy('category_id');
         $grouped_scope_two = $scope_two_emissions->groupBy('category_id');
-        $grouped_scope_five = $scope_five_emissions->groupBy('category_id');
+        $grouped_scope_three = $scope_three_emissions->groupBy('category_id');
 
         // Merge all grouped emissions into one collection
         $merged_emissions = collect();
@@ -147,11 +147,11 @@ class GHGManagementController extends Controller
             ]);
         }
 
-        foreach ($grouped_scope_five as $category_id => $emissions) {
+        foreach ($grouped_scope_three as $category_id => $emissions) {
             $merged_emissions->push([
                 'category_id' => $category_id,
-                'category_name' => ScopeFiveEmissionCategory::find($category_id)->name,
-                'scope_name' => 'scope_five',
+                'category_name' => ScopeThreeEmissionCategory::find($category_id)->name,
+                'scope_name' => 'scope_three',
                 'emissions' => $emissions,
                 'total_emissions' => $emissions->sum('emissions_per_month')
             ]);
@@ -235,13 +235,13 @@ class GHGManagementController extends Controller
         if ($request->scope == "all") {
             $emissions = $emissions->merge(ScopeOneEmissionData::with('category')->get());
             $emissions = $emissions->merge(ScopeTwoEmissionData::with('category')->get());
-            $emissions = $emissions->merge(ScopeFiveEmissionData::with('category')->get());
+            $emissions = $emissions->merge(ScopeThreeEmissionData::with('category')->get());
         } elseif ($request->scope == "scope_one") {
             $emissions = ScopeOneEmissionData::with('category')->get();
         } elseif ($request->scope == "scope_two") {
             $emissions = ScopeTwoEmissionData::with('category')->get();
-        } elseif ($request->scope == "scope_five") {
-            $emissions = ScopeFiveEmissionData::with('category')->get();
+        } elseif ($request->scope == "scope_three") {
+            $emissions = ScopeThreeEmissionData::with('category')->get();
         }
         // Get the latest record after combining
         $latestEmission = $emissions->sortByDesc('to_date')->first();

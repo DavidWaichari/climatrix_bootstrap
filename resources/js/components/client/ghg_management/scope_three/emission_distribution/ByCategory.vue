@@ -26,7 +26,7 @@ const labels = ref([]);
 // Fetch the data and format it
 onMounted(async () => {
     try {
-        const response = await axios.get('/api/ghg_management/gross_emmisions_by_category?scope=scope_five');
+        const response = await axios.get('/api/ghg_management/gross_emmisions_by_category?scope=scope_three');
         const data = response.data.data;
         // Map series and labels from API response
         labels.value = data.labels; // Fixed typo

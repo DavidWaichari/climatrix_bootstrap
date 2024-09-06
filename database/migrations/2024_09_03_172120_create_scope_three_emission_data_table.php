@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('scope_five_emission_data', function (Blueprint $table) {
+        Schema::create('scope_three_emission_data', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('organization_id')->nullable();
             $table->unsignedBigInteger('organization_branch_id')->nullable();
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('scope_five_emission_data');
+        Schema::dropIfExists('scope_three_emission_data');
     }
 };

@@ -5,7 +5,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ScopeFiveEmissionData extends Model
+class ScopeThreeEmissionData extends Model
 {
     use HasFactory;
 
@@ -34,7 +34,7 @@ class ScopeFiveEmissionData extends Model
     ];
 
     /**
-     * Get the organization branch that owns the ScopeFiveEmissionData.
+     * Get the organization branch that owns the ScopeThreeEmissionData.
      */
     public function organization()
     {
@@ -47,15 +47,15 @@ class ScopeFiveEmissionData extends Model
     }
 
     /**
-     * Get the category associated with the ScopeFiveEmissionData.
+     * Get the category associated with the ScopeThreeEmissionData.
      */
     public function category()
     {
-        return $this->belongsTo(ScopeFiveEmissionCategory::class, 'category_id');
+        return $this->belongsTo(ScopeThreeEmissionCategory::class, 'category_id');
     }
 
     /**
-     * Get the user that created the ScopeFiveEmissionData.
+     * Get the user that created the ScopeThreeEmissionData.
      */
     public function user()
     {
@@ -77,6 +77,6 @@ class ScopeFiveEmissionData extends Model
     }
     public function getScopeNameAttribute()
     {
-        return 'scope_five';
+        return 'scope_three';
     }
 }

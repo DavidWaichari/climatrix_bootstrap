@@ -3,12 +3,12 @@
 namespace Database\Seeders;
 
 use App\Models\ScopeOneEmissionData;
-use App\Models\ScopeFiveEmissionData;
+use App\Models\ScopeThreeEmissionData;
 use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class ScopeFiveEmissionDataTableSeeder extends Seeder
+class ScopeThreeEmissionDataTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,7 +16,7 @@ class ScopeFiveEmissionDataTableSeeder extends Seeder
     public function run(): void
     {
 
-        $scope_five_emission_inventory = [
+        $scope_three_emission_inventory = [
             [
                 "id" => 13,
                 "from_date" => "2023-05-01",
@@ -101,8 +101,8 @@ class ScopeFiveEmissionDataTableSeeder extends Seeder
 
 
         //truncate all Scope One Data
-        ScopeFiveEmissionData::truncate();
-        foreach ($scope_five_emission_inventory as $data) {
+        ScopeThreeEmissionData::truncate();
+        foreach ($scope_three_emission_inventory as $data) {
             // Calculate the number of months between from_date and to_date
             $from_date = Carbon::parse($data['from_date']);
             $to_date = Carbon::parse($data['to_date']);
@@ -111,8 +111,8 @@ class ScopeFiveEmissionDataTableSeeder extends Seeder
             // Calculate emissions per month
             $emissions_per_month = $months > 0 ? $data['total_ghg'] / $months : $data['total_ghg'];
 
-            // Insert data into ScopeFiveEmissionData model
-            ScopeFiveEmissionData::create([
+            // Insert data into ScopeThreeEmissionData model
+            ScopeThreeEmissionData::create([
                 'id'=> $data['id'],
                 'organization_id'=> $data['organization_id'],
                 'organization_branch_id' => $data['location'],

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h5 class="card-title">Scope 5 <span>| 12 Months</span></h5>
+        <h5 class="card-title">Scope 3 <span>| 12 Months</span></h5>
         <hr>
         <div class="d-flex align-items-center">
             <div class="card-icon rounded-circle d-flex align-items-center justify-content-center ">

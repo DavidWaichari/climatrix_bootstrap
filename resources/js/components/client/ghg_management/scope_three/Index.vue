@@ -12,7 +12,7 @@
 
         <section class="section dashboard">
             <div class="row">
-                <h2>Scope 5 Emissions</h2>
+                <h2>Scope 3 Emissions</h2>
                 <!-- Sales Card -->
                 <div class="col-xxl-4 col-md-4">
                     <div class="card info-card sales-card">
@@ -78,7 +78,7 @@
 
             </div>
             <div class="row">
-                <h2>Scope 5 Emission Distribution</h2>
+                <h2>Scope 3 Emission Distribution</h2>
                 <!-- Sales Card -->
                 <div class="col-xxl-4 col-md-4">
                     <div class="card info-card sales-card">

@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('scope_five_emission_categories', function (Blueprint $table) {
+        Schema::create('scope_three_emission_categories', function (Blueprint $table) {
             $table->id();
             $table->text('group')->nullable();
             $table->string('name')->nullable();
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('scope_five_emission_categories');
+        Schema::dropIfExists('scope_three_emission_categories');
     }
 };

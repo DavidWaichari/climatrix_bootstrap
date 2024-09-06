@@ -3,11 +3,11 @@
 namespace Database\Seeders;
 
 
-use App\Models\ScopeFiveEmissionCategory;
+use App\Models\ScopeThreeEmissionCategory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class ScopeFiveEmissionCategoriesSeeder extends Seeder
+class ScopeThreeEmissionCategoriesSeeder extends Seeder
 {
    /**
      * Run the database seeds.
@@ -351,10 +351,10 @@ class ScopeFiveEmissionCategoriesSeeder extends Seeder
 
 
         foreach ($data as $item) {
-            $scope_five = ScopeFiveEmissionCategory::where('name', $item['name'])->first();
+            $scope_three = ScopeThreeEmissionCategory::where('name', $item['name'])->first();
 
-            if (!$scope_five) {
-                ScopeFiveEmissionCategory::create([
+            if (!$scope_three) {
+                ScopeThreeEmissionCategory::create([
                     'id'=>$item['id'],
                     'group' => $item['group'],
                     'name' => $item['name'],
